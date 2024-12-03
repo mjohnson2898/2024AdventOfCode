@@ -1,0 +1,20 @@
+def createLists(input):
+    leftList = []
+    rightList = []
+    distance = []
+    file = open(input, "r")
+    for line in file:
+        line = line.split("   ")
+        leftList.append(int(line[0]))
+        rightList.append(int(line[1]))
+    leftList.sort()
+    rightList.sort()
+    for i in range(min(len(leftList), len(rightList))):
+        if(leftList[i] >= rightList[i]):
+            distance.append(leftList[i] - rightList[i])
+        else:
+            distance.append(rightList[i] - leftList[i])
+    print(sum(distance))
+
+
+createLists("Day1\input.txt")

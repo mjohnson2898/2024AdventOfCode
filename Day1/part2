@@ -1,0 +1,24 @@
+def createLists():
+    leftList = []
+    rightCount = {}
+    similarity = []
+    file = open("Day1/input.txt", "r")
+    for line in file:
+        line = line.split("   ")
+        leftList.append(line[0])
+        
+        if line[1].strip() in rightCount:
+            rightCount[line[1].strip()] += 1
+        else:
+            rightCount[line[1].strip()] = 1
+    
+    for leftKey in leftList:
+        if leftKey in rightCount:
+            similarity.append(int(leftKey) * rightCount[leftKey])
+        else:
+            similarity.append(0)
+
+    print(sum(similarity))
+    
+
+createLists()
