@@ -11,8 +11,8 @@ def main():
         currRow = wordsearch[row]
         while col < len(currRow):
             if currRow[col] == 'X':
-                canGoBackwards = col - 3 > 0
-                canGoUp = row - 3 > 0
+                canGoBackwards = col - 3 >= 0
+                canGoUp = row - 3 >= 0
                 canGoFowards = col + 3 < len(currRow)
                 canGoDown = row + 3 < len(wordsearch)
 
